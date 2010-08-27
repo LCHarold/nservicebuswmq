@@ -1,0 +1,89 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7036A49B-359F-4BC7-AFBA-DE3C7AB41986}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Server</RootNamespace>
+    <AssemblyName>Server</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus, Version=1.9.3.17701, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\NSB\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\NServiceBus.Unicast.Subscriptions.Wmq\NServiceBus.Unicast.Subscriptions.Wmq.Config\NServiceBus.Unicast.Subscriptions.Wmq.Config.csproj">
+      <Project>{C49E5194-2E6B-4500-AAF8-B1709553BE86}</Project>
+      <Name>NServiceBus.Unicast.Subscriptions.Wmq.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NServiceBus.Unicast.Subscriptions.Wmq\NServiceBus.Unicast.Subscriptions.Wmq.csproj">
+      <Project>{51408CFD-59E2-4196-B9BD-21068AD83642}</Project>
+      <Name>NServiceBus.Unicast.Subscriptions.Wmq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NServiceBus.Unicast.Transport.Wmq\NServiceBus.Unicast.Transport.Wmq.Config\NServiceBus.Unicast.Transport.Wmq.Config.csproj">
+      <Project>{EAD59B24-FA11-4AE5-AAA9-3F073DBC00F9}</Project>
+      <Name>NServiceBus.Unicast.Transport.Wmq.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NServiceBus.Unicast.Transport.Wmq\NServiceBus.Unicast.Transport.Wmq.csproj">
+      <Project>{5EF4445A-01CB-4D9C-9DED-BC1693BE1604}</Project>
+      <Name>NServiceBus.Unicast.Transport.Wmq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Messages\Messages.csproj">
+      <Project>{5686FE6C-A5E3-40D1-A6BD-25F94DA612F8}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
